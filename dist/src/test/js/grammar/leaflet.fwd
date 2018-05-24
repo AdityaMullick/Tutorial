@@ -1,0 +1,23 @@
+<% template index %>
+    <% unit Leaflet %>
+
+    {
+
+            options: {
+                zoom: 2,
+                center: {
+                        lat: 25,
+                        lng : 131
+                }
+            },
+            markers: [ <% for coord in coordinates %>
+                {
+                    position: <%= coord %>
+                }
+                <% end for %>
+            ]
+
+    }
+
+    <% end unit %>
+<% end template %>

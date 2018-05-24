@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <title>FORWARD Tutorial</title>
+</head>
+<body>
+<div class="container-fluid">
+    <h2>How to Use This Tutorial</h2>
+
+    <p>This tutorial teaches you programming in FORWARD, using example FORWARD applications of increasing complexity, where a user analyzes and visualizes sales of different products.</p>
+
+    <p>A few tips to navigate the tutorial:</p>
+
+    <ul>
+        <li>Use <kbd>Previous</kbd> and <kbd>Next</kbd> to step through the tutorial.</li>
+        <li>The source code is shown on the right.</li>
+        <li>The application output is shown on the lower left.</li>
+        <li>Use <kbd>Run</kbd> to compile and run the application.</li>
+    </ul>
+
+    <h2>Actions and Pages</h2>
+
+    <p>A FORWARD application consists of <b>actions</b> and <b>pages</b>. Each action is associated with a URL. When a browser visits an action's URL, the code of the action runs. The action (among other things) decides which is the next page to be shown on the browser. The user's activity on the page (eg clicking on a button) leads to the activation of an action, which will then lead to another page and so the action-page cycle continues.</p>
+
+    <h2>Use Case: Simple HTML</h2>
+
+    <img src="../../img/tutorial/01-simple-html.png" width="400" height="265"><br>
+
+    <p>This example displays a simple HTML page. We will shortly extend it to utilize charts for visualizing data from a SQL database. In this simple example, the FORWARD interpreter first executes <tt>index.action</tt>, then displays <tt>index.page</tt>.</p>
+
+    <h3>Example Code</h3>
+
+    <p><tt>index.action</tt> specifies the page to be displayed is <tt>index.page</tt> (line 3).
+
+    </p><p><tt>index.page</tt> uses the <code>&lt;% html %&gt;</code> directive (line 1) to render standard HTML: it links to the <a target="_blank" href="http://getbootstrap.com/">Bootstrap CSS library</a>, and contains a HTML table for data.
+
+</p><h3>Exercises</h3>
+    <ol>
+        <li>Add the following CSS stylesheet to use a different Bootstrap theme.<pre>&lt;link rel="stylesheet" href="http://bootswatch.com/darkly/bootstrap.min.css"&gt;&lt;/link&gt;
+</pre></li>
+        <li>Add the HTML for a second product. For example:<pre>&lt;h2&gt;Daily Sales for Tablet&lt;/h2&gt;
+&lt;table class="table table-striped"&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Product&lt;/th&gt;
+            &lt;th&gt;Date&lt;/th&gt;
+            &lt;th&gt;Total&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Tablet&lt;/td&gt;
+        &lt;td&gt;2014-01-01&lt;/td&gt;
+        &lt;td&gt;401&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Tablet&lt;/td&gt;
+        &lt;td&gt;2014-01-02&lt;/td&gt;
+        &lt;td&gt;658&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Tablet&lt;/td&gt;
+        &lt;td&gt;2014-01-03&lt;/td&gt;
+        &lt;td&gt;740&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+</pre></li>
+    </ol>
+</div>
+
+
+
+</body></html>

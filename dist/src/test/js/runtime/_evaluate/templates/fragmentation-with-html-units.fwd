@@ -1,0 +1,25 @@
+<% template index %>
+    <% unit GoogleMaps %>
+    {
+            options: {
+                note: "these are constants for sanity checks",
+                zoom: 2,
+                center: {
+                        lat: 25.32131,
+                        lng : 131
+                }
+            },
+
+            markers: [ <% for coord in coordinates %>
+                            {
+                                position: <%= coord %>,
+                                infowindow: <% html %>
+                                                <div> hello world </div>
+                                                <div><%=coord.address%></div>
+                                            <% end html %>
+                            }
+                       <% end for %>]
+
+    }
+    <% end unit %>
+<% end template %>

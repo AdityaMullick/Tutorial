@@ -1,0 +1,14 @@
+<% template index %>
+
+    <% html %>
+        <table><% for user in users %>
+                <tr>
+                    <td> <%= user.coord.lat %> </td>
+                    <td> <%= user.coord.lng %> </td>
+                </tr>
+            <% end for %>
+        </table>
+
+    <% end html %>
+
+<% end template %>

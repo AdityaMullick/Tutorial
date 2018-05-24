@@ -1,0 +1,69 @@
+.angular-google-map-container {
+    width: 800px;
+    height: 500px;
+    background-color: grey;
+}
+
+#map {
+    width: 800px;
+    height: 500px;
+    background-color: grey;
+    overflow:auto
+}
+
+div.left {
+    float: left;
+    width: 40%;
+}
+
+div.right {
+    float: left;
+    width: 60%;
+}
+
+div.unit {
+    border-style: solid;
+    width: auto;
+}
+
+div.text {
+    font-size: 20px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+div.big-text {
+    font-size: 40px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+body {
+    width: 100%;
+    font-family: sans-serif;
+}
+
+div.infowindow {
+    width: 150px;
+    height: 100px;
+}
+
+tr.nested {
+    font-size: 13px;
+    border: 1pt;
+    text-align: right;
+}
+
+tr {
+    vertical-align: top;
+}
+
+.map {
+    height: 300px;
+}
+
+@media screen and (min-width: 1024px){
+    .map {
+        height: 500px;
+    }
+}

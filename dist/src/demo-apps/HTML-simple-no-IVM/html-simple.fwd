@@ -1,0 +1,12 @@
+<% template main %>
+
+    <% html %>
+    <b> BOLDDD </b>
+
+
+    <br/>
+    <i> Italics </i>
+
+    <p> Just a basic template </p>
+
+<% end html %>

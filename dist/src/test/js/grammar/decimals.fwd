@@ -1,0 +1,14 @@
+<% template main %>
+  <% refresh delivery_trucks = delivery_trucks_var %>
+  <% unit Google-Maps %>
+    {
+      test0: 10.5,
+      test1: 0.25,
+      test2: 0.123456789,
+      test3: 550.55,
+      test4: -10,
+      test5: -10.5
+    }
+  <% end unit %>
+<% end template %>
+

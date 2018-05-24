@@ -1,0 +1,33 @@
+<% template main %>
+  <% unit Test-Unit %>
+    {
+        staticKey1: 100,
+        staticKey2: 200,
+
+        <% if 10 > 100 %>
+            key1: "value1",
+        <% elif x <= 1000 %>
+            key1: "value2",
+        <% elif true %>
+            key1: "value3",
+            <% if false %>
+                key2: "value"
+            <% endif %>
+        <% endif %>
+
+        staticKey3: 300,
+
+        <% if "asdf" === "wxyz" %>
+            keyX: "value1"
+        <% elif "asdf" != "asdf" %>
+            keyX: "value2"
+        <% else %>
+            keyX: "value3" 
+        <% endif %>
+
+        staticKey4: 400,
+
+        ifStmtValueKey1: <% if true %> 'value1' <% else %> 'value2' <% endif %>
+    }
+  <% end unit %>
+<% end template %>

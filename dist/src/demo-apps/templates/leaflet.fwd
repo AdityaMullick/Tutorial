@@ -1,0 +1,52 @@
+<% template index %>
+    <% unit Leaflet %>
+
+    {
+
+            options: {
+                zoom: 2,
+                center: {
+                        lat: 25.32131,
+                        lng : 131
+                }
+            },
+            markers: [ <% for coord in coordinates %>
+                {
+                    position: <%= coord %>,
+                    options: {
+                        icon: {
+                            <% if testFunction() === 1 %>
+                                <% if false %>
+                                    iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-red.png',
+                                <% else %>
+                                    iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-green.png',
+                                <% endif %>
+                            <% else %>
+                                iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-red.png',
+                            <% endif %>,
+
+                            <% if testFunction() === 1 %>
+                                iconSize:     [38, 95],
+                            <% else %>
+                                iconSize:     [30, 60],
+                            <% endif %>,
+
+                            shadowUrl: 'http://leafletjs.com/examples/custom-icons/leaf-shadow.png',
+                            shadowSize:   [50, 64],
+                            iconAnchor:   [22, 94],
+                            shadowAnchor: [4, 62],
+                            popupAnchor:  [-3, -76]
+                        },
+                        opacity: <% if false %> 0.9
+                                 <% else %>
+                                    <%if false %> 0.2 <% else %> <%= coord.opacity %> <% endif %>
+                                 <% endif %>
+                    }
+                }
+                <% end for %>
+            ]
+
+    }
+
+    <% end unit %>
+<% end template %>

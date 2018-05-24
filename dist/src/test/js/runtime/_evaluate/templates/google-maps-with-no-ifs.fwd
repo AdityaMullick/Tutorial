@@ -1,0 +1,37 @@
+<% template index %>
+    <% unit GoogleMaps %>
+    {
+            options: {
+                zoom: 2,
+                center: {
+                        lat: 25.32131,
+                        lng : 131
+                }
+            },
+            markers: [ <% for coord in coordinates %>
+                {
+                    position: <%= coord %>,
+                    infowindow: <% unit GoogleMaps %>
+                                    {
+                                            options: {
+                                                zoom: 2,
+                                                center: {
+                                                        lat: 25.32131,
+                                                        lng : 131
+                                                }
+                                            },
+                                            markers: [ <% for coord in coordinates %>
+                                                {
+                                                    position: <%= coord %>,
+                                                    infowindow: 'sth'
+                                                }
+                                                <% end for %>
+                                            ]
+                                    }
+                                    <% end unit %>
+                }
+                <% end for %>
+            ]
+    }
+    <% end unit %>
+<% end template %>

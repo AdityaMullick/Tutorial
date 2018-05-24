@@ -1,0 +1,232 @@
+<% template index %>
+    <% html {attributes:[{class:'myhtmlclass'}]} %>
+      <div class="tab">
+        <button class="tablinks active" onclick="openCity(event, 'London')">Location</button>
+        <button class="tablinks" onclick="openCity(event, 'Paris')">Sources - Social Media</button>
+        <button class="tablinks" onclick="openCity(event, 'Tokyo')">Demographics</button>
+      </div>
+
+      <div id="London" class="tabcontent" style="display: block">
+        <div>
+            <div class="left">
+                <div>
+                    <div class="unit text">
+                        Right now
+                        <div id="user_counter" class="big-text">500</div>
+                        active users on site
+                    </div>
+                    <div id="visitor-meter" class="unit">
+                        <% unit Highcharts %>
+                            {
+                                chart: {
+                                    type: 'bar',
+                                    height: 100,
+                                    marginTop: 0,
+                                    marginBottom: 20,
+                                    marginLeft: 10,
+                                    marginRight: 10,
+                                },
+                                title:{
+                                    text: ''
+                                },
+                                yAxis: {
+                                    gridLineWidth: 0,
+                                    minorGridLineWidth: 0,
+                                    lineColor: 'transparent',
+                                    labels: {
+                                        enabled: false
+                                    },
+                                    minorTickLength: 0,
+                                    tickLength: 0,
+                                    title: {
+                                        text: ''
+                                    }
+                                },
+                                xAxis: {
+                                    gridLineWidth: 0,
+                                    minorGridLineWidth: 0,
+                                    lineColor: 'transparent',
+                                    labels: {
+                                        enabled: false
+                                    },
+                                    minorTickLength: 0,
+                                    tickLength: 0,
+                                    title: {
+                                        text: ''
+                                    }
+                                },
+                                plotOptions: {
+                                    series: {
+                                        pointWidth:40,
+                                        stacking: 'percent',
+                                        animation: false,
+                                        dataLabels: {
+                                            enabled: true,
+                                            style:{
+                                                fontSize: 12,
+                                            },
+
+                                        }
+                                    }
+                                },
+                                series: [{name: 'USA', data:[2]}, {name:'Mexico', data:[5]}]
+                            }
+                        <% end unit %>
+                    </div>
+
+                </div>
+
+                <div class="unit padtop">
+                        <form novalidate class="simple-form">
+
+                        </form>
+                        <table id="countries-table">
+                            <% for user in users %>
+                                <tr>
+                                    <td><%= user.id %></td>
+                                    <td><%= user.country %></td>
+                                    <td><%= user.lat %></td>
+                                    <td><%= user.lng %></td>
+                                </tr>
+                            <% end for %>
+                        </table>
+                </div>
+            </div>
+            <div class="right">
+                  <div class="pad">
+                    <div class="unit">
+
+                        <% unit Highcharts %>
+                        {
+                            chart:{
+                              type: 'line',
+                              height:300
+                            },
+                            plotOptions: {
+                              series: {
+                                marker: {
+                                  enabled: false
+                                }
+                              }
+                            },
+                            title: {
+                              text: 'Visitors'
+                            },
+                            subtitle: {
+                              text: 'Per second'
+                            },
+                            xAxis: {
+                                type: 'datetime',
+                                minTickInterval : 1000
+                            },
+                            series: [
+                                 {
+                                   data: [
+                                   <% for p in pageviews.data %>
+                                      {
+                                        y : <%= p %>
+                                      }
+                                      <% end for %>
+                                    ],
+                                   animation: false,
+                                   lineWidth: 1,
+                                   events: {
+
+                                   }
+                                 }
+                                ]
+                        }
+                        <% end unit %>
+
+
+                    </div>
+                  </div>
+
+                  <div>
+                    <% unit GoogleMaps {attributes:[{class:'gmap-wrapper'}]} %>
+                    {
+                            options: {
+                                zoom: 2,
+                                center: {
+                                        lat: 25.32131,
+                                        lng : 131
+                                }
+                            },
+                            markers: [
+                                <% for user in users %>
+                                    {
+                                        position: {
+                                           lat: <%= user.lat %>,
+                                           lng: <%= user.lng %>,
+                                        }
+                                    }
+                                <% end for %>
+                            ]
+                    }
+                    <% end unit %>
+                  </div>
+            </div>
+        </div>
+      </div>
+
+
+          <div id="Paris" class="tabcontent">
+            <div class="left">
+                <div>
+                    <div class="unit text">
+                        Right now
+                        <div class="big-text">asd</div>
+                        active users on site
+                    </div>
+                </div>
+
+                <div class="unit">
+                    asd
+                </div>
+
+            </div>
+
+            <div class="right">
+                <div>
+                    <div class="unit">
+                        asd
+                    </div>
+                </div>
+                <table class="social">
+                    <tr class="social">
+                      <th class="social">Medium</th>
+                      <th class="social">Source</th>
+                      <th class="social">Users  </th>
+                    </tr>
+                    <tr class="social">
+                      <td class="social">Social</td>
+                      <td class="social">Facebook</td>
+                      <td class="social">40</td>
+                    </tr>
+                    <tr class="social">
+                      <td class="social">Social</td>
+                      <td class="social">Twitter</td>
+                      <td class="social">35</td>
+                    </tr>
+                    <tr>
+                      <td class="social">Organic</td>
+                      <td class="social">Google</td>
+                      <td class="social">15</td>
+                    </tr>
+                    <tr>
+                      <td class="social">Organic</td>
+                      <td class="social">Direct</td>
+                      <td class="social">10</td>
+                    </tr>
+                </table>
+            </div>
+          </div>
+
+          <div id="Tokyo" class="tabcontent">
+              <h3>Tokyo</h3>
+              <p>Tokyo is the capital of Japan.</p>
+          </div>
+
+
+    <% end html %>
+<% end template %>

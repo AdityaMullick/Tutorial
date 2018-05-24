@@ -1,0 +1,31 @@
+<% template index %>
+    <% html {attributes:[{class:'myhtmlclass'}]} %>
+          <div class="container">
+              <h2>Daily Sales for Phone</h2>
+              <table class="table table-striped">
+                  <thead>
+                      <tr>
+                          <th>Product</th>
+                          <th>Date</th>
+                          <th>Total</th>
+                      </tr>
+                  </thead>
+                  <tr>
+                      <td>Phone</td>
+                      <td>2014-01-01</td>
+                      <td>598</td>
+                  </tr>
+                  <tr>
+                      <td>Phone</td>
+                      <td>2014-01-02</td>
+                      <td>839</td>
+                  </tr>
+                  <tr>
+                      <td>Phone</td>
+                      <td>2014-01-03</td>
+                      <td>742</td>
+                  </tr>
+              </table>
+          </div>
+      <% end html %>
+<% end template %>

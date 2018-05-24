@@ -1,0 +1,190 @@
+<% template index () %>
+    <% unit main/units/google-maps/GoogleMapsUnit %>
+
+    {
+
+            options: {
+                zoom: 2,
+                center: {
+                        lat: -25.363882,
+                        lng : 131.044922
+                },
+                draggable: true,
+                clickable: true
+            },
+            markers: [
+                {
+                    position: {
+                        lat: -26.363882,
+                        lng: 131.044922
+                    },
+                    title: 'marker1',
+                    clickable: true
+                },
+                {
+                    position: {
+                        lat: -26.363882,
+                        lng: 131.044922
+                    },
+                    title: 'marker2',
+                    clickable: true
+                },
+                {
+                    position: {
+                        lat: -27.363882,
+                        lng: 131.044922
+                    },
+                    title: 'marker3',
+                    clickable: true
+                },
+                {
+                    position: {
+                        lat: -28.363882,
+                        lng: 131.044922
+                    },
+                    title: 'marker4',
+                    clickable: true
+                }
+            ],
+
+            circles: [
+                {
+                    strokeColor: '#FF0000',
+                    strokeOpacity: 0.8,
+                    strokeWeight: 2,
+                    fillColor: '#FF0000',
+                    fillOpacity: 0.35,
+                    center: {
+                        lat: 41.878113,
+                        lng : -87.629798
+                    },
+                    radius: 271480
+                },
+                {
+                    strokeColor: '#FF0000',
+                    strokeOpacity: 0.8,
+                    strokeWeight: 2,
+                    fillColor: '#FF0000',
+                    fillOpacity: 0.35,
+                    center: {
+                        lat: 40.714352,
+                        lng : -74.005973
+                    },
+                    radius: 840580
+                },
+                {
+                    strokeColor: '#FF0000',
+                    strokeOpacity: 0.8,
+                    strokeWeight: 2,
+                    fillColor: '#FF0000',
+                    fillOpacity: 0.35,
+                    center: {
+                        lat: 34.052234,
+                        lng : -118.243684
+                    },
+                    radius: 385770
+                }
+
+            ],
+            polygons: [
+                {
+                    strokeColor: '#FF0000',
+                    strokeOpacity: 0.8,
+                    strokeWeight: 2,
+                    fillColor: '#FF0000',
+                    fillOpacity: 0.35,
+                    radius: 271480,
+                    paths: [
+                    {
+                        lat: 25.774252,
+                        lng : -80.190262
+                    },
+                    {
+                        lat: 18.466465,
+                        lng : -66.118292
+                    },
+                    {
+                        lat: 32.321384,
+                        lng : -64.75737
+                    },
+                    {
+                        lat: 25.774252,
+                        lng : -80.190262
+                    }
+                    ]
+                }
+            ],
+            polylines: [
+                {
+                    strokeColor: '#FF0000',
+                    strokeOpacity: 1.0,
+                    strokeWeight: 2,
+                    geodesic: true,
+                    path: [
+                        {
+                            lat: 37.772323,
+                            lng : -122.214897
+                        },
+                        {
+                            lat: 21.291982,
+                            lng : -157.821856
+                        },
+                        {
+                            lat: -18.142599,
+                            lng : 178.431
+                        },
+                        {
+                            lat: -27.46758,
+                            lng : 153.027892
+                        }
+                    ]
+                }
+            ],
+            rectangles: [
+                {
+                    strokeColor: '#00FF00',
+                    strokeOpacity: 0.8,
+                    strokeWeight: 2,
+                    fillColor: '#00FF00',
+                    fillOpacity: 0.35,
+                    bounds: {
+                        sw: {
+                            lat: 29.947010,
+                            lng : -52.389300
+
+                        },
+                        ne: {
+                            lat: 44.166895,
+                            lng : -35.335896
+                        }
+                    }
+                }
+            ],
+            layer: {
+                type: 'FusionTablesLayer',
+                query: {
+                      select: 'geometry',
+                      from: '1ertEwm-1bMBhpEwHhtNYT47HQ9k2ki_6sRa-UQ'
+                    },
+                    styles: [{
+                      polygonOptions: {
+                        fillColor: '#00FF00',
+                        fillOpacity: 0.3
+                      }
+                    }, {
+                      where: 'birds > 300',
+                      polygonOptions: {
+                        fillColor: '#0000FF'
+                      }
+                    }, {
+                      where: 'population > 5',
+                      polygonOptions: {
+                        fillOpacity: 1.0
+                      }
+                    }]
+            }
+
+    }
+
+    <% end unit %>
+<% end template %>
