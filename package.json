@@ -4,8 +4,9 @@
   "description": "",
   "main": "main.js",
   "dependencies": {
-    "requirejs": "2.3.5",
+    "eval": "^0.1.2",
     "lodash-amd": "4.17.4",
+    "requirejs": "2.3.5",
     "requirejs-text": "2.0.15"
   },
   "devDependencies": {},

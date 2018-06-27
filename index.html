@@ -33,6 +33,7 @@
   <!--<script src="theme-chrome.js"></script>-->
   <script type="text/javascript" charset="utf-8" data-requirecontext="page" data-requiremodule="http://code.jquery.com/jquery-1.11.0.min.js" src="jquery-1.11.0.min.js"></script>
   <script type="text/javascript" charset="utf-8" data-requirecontext="page" data-requiremodule="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js" src="bootstrap.min.js"></script>
+    <script src="buttonHandler.js"></script>
 
 </head>
 
@@ -40,7 +41,7 @@
   <div class="container-fluid" style="cursor: default;">
     <div class="row" id="tutorial-pagination">
       <div class="text-center">
-        <div class="btn-group"><button type="button" class="btn btn-default disabled">&#8592; Previous</button>
+        <div class="btn-group"><button id = "previous"type="button" class="btn btn-default">&#8592; Previous</button>
           <div class="btn-group"><button xmlns="http://www.w3.org/1999/xhtml" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width:100%" type="button">
                     Select Tutorial <span class="caret"></span></button>
             <ul class="dropdown-menu" role="menu">
@@ -52,7 +53,7 @@
               <li class=""><a><button id = "singleBrowse" type="button">06 - Faceted Browsing (Single Input)</button></a></li>
               <li class=""><a><button id = "multipleBrowse" type="button">07 - Faceted Browsing (Multiple Inputs)</button></a></li>
             </ul>
-          </div><button type="button" class="btn btn-default">Next &#8594;</button></div>
+          </div><button id = "nextButton"type="button" class="btn btn-default">Next &#8594;</button></div>
       </div>
     </div>
     <div class="row" id="content">
@@ -64,10 +65,10 @@
             <div>
 
               <div class="tutorial_text_pane"  >
-                  <div class="tutorial_text_inner_pane"  >
+                  <div id = "frame" class="tutorial_text_inner_pane"  >
                     <!--<div class="container-fluid" style="overflow:scroll; height:400px;">-->
-                      <div class="container-fluid" >
-                      <h2>How to Use This Tutorial</h2>
+                      <div id = "container"class="container-fluid" >
+                      <h2 id = "test">How to Use This Tutorial</h2>
 
 
                       <p>This tutorial teaches you programming in FORWARD, using example FORWARD applications of increasing complexity, where a user analyzes and visualizes sales of different products.</p>
@@ -139,11 +140,12 @@
           </div>
         </div>
         <div class="row" id="output">
-          <div class="pane">
+          <div  class="pane">
             <div>
               <h3 class="pane-header">Output
                 <div id="run-button" style="display:inline-block;">
-                  <a  class="btn btn-primary">Run <span class="glyphicon glyphicon-play"></span></a>
+
+                    <a  class="btn btn-primary">Run <span class="glyphicon glyphicon-play"></span></a>
                 </div>
               </h3>
             </div>
@@ -153,8 +155,7 @@
                     <div class="tutorial_text_pane">
                         <div class="tutorial_text_inner_pane">
                             <!--<div class="container-fluid" style="overflow:scroll; height:400px;">-->
-                            <div class="container-fluid">
-                                <div id="myID"></div>
+                            <div id = "runPane" class="container-fluid">
                             </div>
                         </div>
                     </div>
@@ -177,6 +178,9 @@
               <div class="pane" id="tab-wrapper">
                 <div>
                   <ul class="nav nav-pills nav-justified" role="tablist">
+                      <li class="">
+                          <a data-toggle="tab" href="#html_1" role="tab">index.html</a>
+                      </li>
                     <li class="active">
                       <a data-toggle="tab" href="#page_1" role="tab">template.fwd</a>
                     </li>
@@ -216,6 +220,32 @@
             &lt;td&gt;2014-01-03&lt;/td&gt;
             &lt;td&gt;742&lt;/td&gt;
           &lt;/tr&gt;
+                            &lt;tr&gt;
+                            &lt;td&gt;Phone&lt;/td&gt;
+                            &lt;td&gt;20214-01-03&lt;/td&gt;
+                            &lt;td&gt;742&lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+                            &lt;td&gt;Phone&lt;/td&gt;
+                            &lt;td&gt;2014-01-03&lt;/td&gt;
+                            &lt;td&gt;742&lt;/td&gt;
+                            &lt;/tr&gt;&lt;tr&gt;
+                            &lt;td&gt;Phone&lt;/td&gt;
+                            &lt;td&gt;2014-01-03&lt;/td&gt;
+                            &lt;td&gt;742&lt;/td&gt;
+                            &lt;/tr&gt;&lt;tr&gt;
+                            &lt;td&gt;Phone&lt;/td&gt;
+                            &lt;td&gt;203214-01-03&lt;/td&gt;
+                            &lt;td&gt;742&lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+                            &lt;td&gt;Phone&lt;/td&gt;
+                            &lt;td&gt;2014-01-03&lt;/td&gt;
+                            &lt;td&gt;742&lt;/td&gt;
+                            &lt;/tr&gt;
+
+
+
         &lt;/table&gt;
       &lt;/div&gt;
   &lt;% end html %&gt;
@@ -224,10 +254,26 @@
                     <div class="tab-pane" id="action_1">
                       <div id="action">requirejs(['require-config'], function() {
   requirejs(['Forward', 'main/api/diff/UpdateDiff', 'main/api/diff/AppendDiff', 'main/api/diff/InsertIntoArrayDiff', 'main/api/diff/Path'], function(Forward, UpdateDiff, AppendDiff, InsertIntoArrayDiff, Path) {
-    Forward.display('template.fwd', 'myID');
+    Forward._display_template(content, {}, 'myID');
   });
 });</div>
                     </div>
+                      <div class="tab-pane" id="html_1">
+                          <div id="html">&lt;html&gt;
+                              &lt;head&gt;
+                              &lt;title&gt;FORWARD&lt;/title&gt;
+
+                              &lt;!--&lt;script src="../chance.min.js"&gt;&lt;/script&gt;--&gt;
+                              &lt;script data-main="forward_app" src="../../../node_modules/requirejs/require.js"&gt;&lt;/script&gt;
+                              &lt;link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"&gt;
+                              &lt;/head&gt;
+                              &lt;body&gt;
+                              &lt;div id="myID"&gt;&lt;/div&gt;
+                              &lt;/body&gt;
+                              &lt;/html&gt;
+
+                          </div>
+                      </div>
                   </div>
                 </div>
               </div>
@@ -242,6 +288,14 @@
       var action_editor = ace.edit("action");
       // editor.setTheme("ace/theme/monokai");
       action_editor.session.setMode("ace/mode/javascript");
+
+
+
+      var htmlElement = document.getElementById("html");
+      var html_editor = ace.edit("html");
+      html_editor.session.setMode("ace/mode/html");
+      html_editor.getSession().setUseWorker(false);
+      //html_editor.session.setValue(htmlElement.innerHTML);
 
       var template_editor = ace.edit("template");
       template_editor.session.setMode("ace/mode/html");

@@ -146,6 +146,12 @@ iframe {
 
 .pane_below_run_me_button{
     pointer-events: none;
+
+
+}
+
+#runPane{
+    overflow: auto;
 }
 
 /*------- Source Code + Error log Panes -------*/
