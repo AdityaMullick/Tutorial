@@ -1,0 +1,26 @@
+<% template index () %>
+    <% unit main/units/html/HtmlUnit %>
+
+    <table style="width:100%">
+    <tbody>
+      <tr>
+        <td>Jill</td>
+        <td>Smith</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Eve</td>
+        <td>Jackson</td>
+        <td>94</td>
+      </tr>
+
+      <tr>
+              <td>Costas</td>
+              <td>Zarifis</td>
+              <td>131</td>
+            </tr>
+      </tbody>
+    </table>
+
+    <% end unit %>
+<% end template %>

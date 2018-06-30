@@ -1,0 +1,31 @@
+<%template index %>
+    <% let users = createUsers(n) %>
+    <% html %>
+
+        <% unit GoogleMaps {attributes:[{class:'gmap-wrapper'}]}%>
+        {
+            options: {
+                zoom: 2,
+                center: <% bind center %>,
+                events : {
+                    center_changed: <% action centerChange(center) %>
+                }
+            },
+            markers: [
+                <% for user in users %>
+                    {
+                        position: {
+                            lat: <%= user.lat %>,
+                            lng: <%= user.lng %>,
+                        },
+                        events : {
+                            onClick: <% action reaction(user) %>
+                        }
+                    }
+                <% end for %>
+            ]
+        }
+        <% end unit %>
+        <div> <%= stringify(center) %> </div>
+    <% end html %>
+<% end template %>

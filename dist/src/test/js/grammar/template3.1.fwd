@@ -1,0 +1,1 @@
+<% template main %><% refresh array_alias = array_var %><% html %><% for element_alias in array_alias %><div><div>Jill</div><div>Smith</div><div><%= element_alias %></div></div><% end for %><% end html %>

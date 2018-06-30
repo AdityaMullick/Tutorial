@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Template Engine Demo</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+        <script src="../../../../../node_modules/requirejs/require.js"></script>
+        <script>
+        require(['../../../../../../main-demos'], function() {
+            require(
+                ['main/demos/requirejs/index', 'template!main/demos/requirejs/index.template'],
+                function (actions, template) {
+                    actions.load();
+                }
+            );
+        });
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div id="content" class="col-md-12">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,106 @@
+<% template index %>
+    <% html %>
+        <div> Map with Markers </div>
+        <% unit GoogleMaps %>
+        {
+                options: {
+                    note: "these are constants for sanity checks",
+                    zoom: 2,
+                    center: {
+                            lat: 25.32131,
+                            lng : 131
+                    }
+                },
+
+                markers: [ <% for user in users %>
+                                {
+                                    position: <%= user.coord %>,
+                                    infowindow: <% unit Highcharts %>
+                                                    {
+                                                        chart: {
+                                                          renderTo: 'container',
+                                                          zoomType: 'x'
+                                                        },
+                                                        plotOptions:{
+                                                            series:{
+                                                                turboThreshold:5000000
+                                                            }
+                                                        },
+                                                        title: {
+                                                            text: 'Temperature monitor',
+                                                            style: {
+                                                                color: '#525151',
+                                                                font: '30px Helvetica'
+                                                            },
+                                                        },
+                                                        tooltip: {
+                                                          valueDecimals: 1
+                                                        },
+                                                        series: [
+                                                            <% for room in user.rooms %>
+                                                                {
+                                                                  data: [
+                                                                       <% for measurement in room.measurements %>
+                                                                            {
+                                                                                y: <%= measurement %>,
+                                                                                color : <%= getColorForPercentage(measurement) %>
+                                                                            }
+                                                                        <% end for %>
+                                                                  ],
+                                                                  animation: false,
+                                                                  lineWidth: 1,
+                                                                  name: 'Room 3232',
+                                                                  events: {
+
+                                                                  }
+                                                                }
+                                                          <% end for %>
+                                                        ],
+                                                yAxis: {
+
+                                                            title: {
+                                                                    style: {
+                                                                    color: '#525151',
+                                                                    font: '20px Helvetica'
+                                                                    },
+                                                                text: 'Fahrenheit'
+                                                            },
+                                                            labels: {
+                                                            style: {
+                                                                color: '#525151',
+                                                                font: '20px Helvetica',
+                                                                fontWeight: 'bold'
+                                                            },
+
+                                                            }
+                                                            },
+                                                            xAxis: {
+
+
+                                                                        labels: {
+                                                                        style: {
+                                                                            color: '#525151',
+                                                                            font: '20px Helvetica',
+                                                                            fontWeight: 'bold'
+                                                                        },
+
+                                                                        }
+
+                                                                        },
+                                                         legend: {
+                                                                      itemStyle: {
+                                                                         font: '20px Helvetica',
+                                                                         color: '#525151'
+
+
+                                                                      }
+                                                                      }
+                                                    }
+                                                  <% end unit %>
+                                }
+                                 <% end for %>]
+
+        }
+        <% end unit %>
+    <% end html %>
+<% end template %>

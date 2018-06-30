@@ -1,0 +1,22 @@
+<% template index %>
+    <% unit GoogleMaps {attributes:[{class:'gmap-wrapper'}]}%>
+    {
+            options: {
+                zoom: 2,
+                center: {
+                        lat: 25.32131,
+                        lng : 131
+                }
+            },
+            markers: [ <% for coord in coordinates %>
+                {
+                    position: <%= coord %>,
+                    events : {
+                        onClick: <% action reaction() %>
+                    }
+                }
+                <% end for %>
+            ]
+    }
+    <% end unit %>
+<% end template %>

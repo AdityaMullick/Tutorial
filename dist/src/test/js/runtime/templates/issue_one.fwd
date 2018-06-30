@@ -1,0 +1,27 @@
+<% template index %>
+
+    <% html %>
+
+        <div>
+            <% unit GoogleMaps %>
+            {
+                options: {
+                    note: "these are needed to render the map",
+                    zoom: 2,
+                    center: {
+                        lat: 25.32131,
+                        lng : 131
+                    }
+                },
+                 markers: [ <% for user in users %>
+                            {
+                                position: <%= user.coord %>
+                            }
+                            <% end for %> ]
+            }
+            <% end unit %>
+        </div>
+
+    <% end html %>
+
+<% end template %>

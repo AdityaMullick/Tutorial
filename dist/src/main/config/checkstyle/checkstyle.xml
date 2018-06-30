@@ -1,0 +1,228 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+	  "-//Puppy Crawl//DTD Check Configuration 1.2//EN"
+	  "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
+
+<module name="Checker">
+
+    <!-- Javadoc Comments -->
+
+    <!--
+    <module name="PackageHtml">
+        <property name="severity" value="info"/>
+    </module>
+    -->
+
+    <module name="TreeWalker">
+
+        <!-- Javadoc Comments -->
+
+        <!--
+        <module name="JavadocType">
+            <property name="scope" value="private"/>
+            <property name="severity" value="info"/>
+        </module>
+        -->
+        <!--
+        <module name="JavadocMethod">
+            <property name="scope" value="protected"/>
+            <property name="severity" value="info"/>
+        </module>
+        -->
+        <!--
+        <module name="JavadocStyle">
+            <property name="scope" value="private"/>
+            <property name="severity" value="info"/>
+        </module>
+        -->
+            
+        <!-- Naming Conventions -->
+
+        <module name="ConstantName">
+            <property name="format" value="^([A-Z][A-Z0-9]*(_[A-Z0-9]+)*)|log$"/>
+            <property name="severity" value="info"/>
+        </module>
+        <module name="LocalFinalVariableName">
+            <property name="format" value="^[a-z][a-z0-9]*(_[a-z0-9]+)*$"/>
+            <property name="severity" value="info"/>
+        </module>
+        <module name="LocalVariableName">
+            <property name="format" value="^[a-z][a-z0-9]*(_[a-z0-9]+)*$"/>
+            <property name="severity" value="info"/>
+        </module>
+        <module name="MemberName">
+            <property name="format" value="^m_[a-z][a-z0-9]*(_[a-z0-9]+)*$"/>
+            <property name="severity" value="info"/>
+        </module>
+        <module name="MethodName">
+            <property name="format" value="^[a-z][a-z0-9]*([A-Z][a-z0-9]+)*$"/>
+            <property name="severity" value="info"/>
+        </module>
+        <module name="PackageName">
+            <property name="format" value="^[a-z][a-z0-9_]*(\.[a-z][a-z0-9_]+)*$"/>
+            <property name="severity" value="info"/>
+        </module>
+        <module name="ParameterName">
+            <property name="format" value="^[a-z][a-z0-9]*(_[a-z0-9]+)*$"/>
+            <property name="severity" value="info"/>
+        </module>
+        <module name="StaticVariableName">
+            <property name="format" value="^s_[a-z][a-z0-9]*(_[a-z0-9]+)*$"/>
+            <property name="severity" value="info"/>
+        </module>
+        <module name="TypeName">
+            <property name="format" value="^([A-Z][a-z0-9]+)*$"/>
+            <property name="severity" value="info"/>
+        </module>
+
+        <!-- Imports -->
+
+        <module name="AvoidStarImport">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="IllegalImport">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="RedundantImport">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="UnusedImports">
+            <property name="severity" value="info"/>
+        </module>
+        <!-- TODO ImportControl -->
+
+        <!-- Size Violations -->
+
+        <module name="FileLength">
+            <property name="max" value="1500"/>
+            <property name="severity" value="warning"/>
+        </module>
+        <!--
+        <module name="LineLength">
+            <property name="max" value="80"/>
+            <property name="severity" value="info"/>
+        </module>
+        -->
+        <module name="MethodLength">
+            <property name="max" value="150"/>
+            <property name="severity" value="warning"/>
+            <property name="countEmpty" value="false"/>
+        </module>
+        <module name="AnonInnerLength">
+            <property name="max" value="50"/>
+            <property name="severity" value="warning"/>
+        </module>
+        <module name="ParameterNumber">
+            <property name="severity" value="warning"/>
+        </module>
+
+        <!-- Whitespace -->
+
+        <module name="TabCharacter">
+            <property name="severity" value="info"/>
+        </module>
+
+        <!-- Modifiers -->
+
+        <!--
+        <module name="ModifierOrder">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="RedundantModifier">
+            <property name="severity" value="info"/>
+        </module>
+        -->
+
+        <!-- Block Checks -->
+
+        <!--
+        <module name="EmptyBlock">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="NeedBraces">
+            <property name="severity" value="warning"/>
+        </module>
+        -->
+
+        <!-- Coding (critical) -->
+        <module name="EqualsHashCode">
+            <property name="severity" value="error"/>
+        </module>
+        <module name="SuperClone">
+            <property name="severity" value="error"/>
+        </module>
+        <module name="SuperFinalize">
+            <property name="severity" value="error"/>
+        </module>
+        <module name="FallThrough">
+            <property name="severity" value="error"/>
+        </module>
+
+        <!-- Coding -->
+        <!--
+        <module name="CovariantEquals"/>
+        <module name="DoubleCheckedLocking"/>
+        <module name="EmptyStatement"/>
+        <module name="HiddenField"/>
+        <module name="InnerAssignment"/>
+        <module name="MagicNumber"/>
+        <module name="MissingSwitchDefault"/>
+        <module name="RedundantThrows"/>
+        <module name="SimplifyBooleanExpression"/>
+        <module name="SimplifyBooleanReturn"/>
+        <module name="StringLiteralEquality"/>
+        <module name="IllegalThrows"/>
+        <module name="PackageDeclaration"/>
+        <module name="JUnitTestCase"/>
+        <module name="ReturnCount"/>
+        <module name="IllegalType"/>
+        <module name="ParameterAssignment"/>
+        <module name="DefaultComesLast"/>
+        <module name="MultipleStringLiterals"/>
+        <module name="MultipleVariableDeclarations"/>
+        <module name="UnnecessaryParentheses"/>
+        -->
+
+        <!-- Class Design -->
+
+        <module name="VisibilityModifier">
+            <property name="severity" value="warning"/>
+        </module>
+        <module name="FinalClass">
+            <property name="severity" value="warning"/>
+        </module>
+        <module name="InterfaceIsType">
+            <property name="severity" value="warning"/>
+        </module>
+        <module name="HideUtilityClassConstructor">
+            <property name="severity" value="warning"/>
+        </module>
+        <module name="DesignForExtension">
+            <property name="severity" value="ignore"/>
+        </module>
+        <module name="MutableException">
+            <property name="severity" value="warning"/>
+        </module>
+
+        <!-- Duplicate Code -->
+
+        <!-- Metrics -->
+
+        <!-- Miscellaneous -->
+
+        <!--
+        <module name="GenericIllegalRegexp">
+            <property name="format" value="System\.out\.println"/>
+        </module>
+        <module name="GenericIllegalRegexp">
+            <property name="format" value="System\.err\.println"/>
+        </module>
+        <module name="UpperEll"/>
+        <module name="ArrayTypeStyle"/>
+        <module name="Indentation">
+            <property name="severity" value="info"/>
+        </module>
+        -->
+
+    </module>
+</module>

@@ -1,0 +1,15 @@
+<% template main %>
+    <% html %>
+        <table>
+            <tbody><% for product in products %>
+                    <tr>
+                        <td><%= product.id %></td>
+                        <td><%= product.name %></td>
+                        <td><%= product.user_rating %></td>
+                        <td><%= product.units_in_stock %></td>
+                        <td><%= product.release_year %></td>
+                    </tr>
+                <% end for %>
+            </tbody>
+        </table>
+    <% end html %>

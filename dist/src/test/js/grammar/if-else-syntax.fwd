@@ -1,0 +1,15 @@
+<% template main %>
+  <% unit Test-Unit %>
+    {
+        key1: 100,
+
+        key2: <% if true %> 200 <% elif false %> 210 <% else %> 230 <% endif %>
+
+        key3: 300,
+
+        key4: <% if false %> 400 <% elif true %> 410 <% endif %>,
+
+        key5: 500
+    }
+  <% end unit %>
+<% end template %>

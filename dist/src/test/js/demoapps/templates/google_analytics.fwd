@@ -1,0 +1,156 @@
+<% template index %>
+    <% html %>
+        <div class="left">
+            <div class="unit text">
+                Right now
+                <div id="user_counter" class="big-text">100</div>
+                active users on site
+            </div>
+
+            <div id="visitor-meter" class="unit">
+                <% unit Highcharts %>
+                    {
+                        chart: {
+                            type: 'bar',
+                            height: 100,
+                            marginTop: 0,
+                            marginBottom: 20,
+                            marginLeft: 10,
+                            marginRight: 10,
+                        },
+                        title:{
+                            text: ''
+                        },
+                        yAxis: {
+                            gridLineWidth: 0,
+                            minorGridLineWidth: 0,
+                            lineColor: 'transparent',
+                            labels: {
+                                enabled: false
+                            },
+                            minorTickLength: 0,
+                            tickLength: 0,
+                            title: {
+                                text: ''
+                            }
+                        },
+                        xAxis: {
+                            gridLineWidth: 0,
+                            minorGridLineWidth: 0,
+                            lineColor: 'transparent',
+                            labels: {
+                                enabled: false
+                            },
+                            minorTickLength: 0,
+                            tickLength: 0,
+                            title: {
+                                text: ''
+                            }
+                        },
+                        plotOptions: {
+                            series: {
+                                pointWidth:40,
+                                stacking: 'percent',
+                                animation: false,
+                                dataLabels: {
+                                    enabled: true,
+                                    style:{
+                                        fontSize: 12,
+                                    },
+
+                                }
+                            }
+                        },
+                        series: [{name: 'USA', data:[2]}, {name:'Mexico', data:[5]}]
+                    }
+                <% end unit %>
+            </div>
+        </div>
+
+        <% unit Highcharts %>
+        {
+            chart:{
+              type: 'line'
+            },
+            plotOptions: {
+              series: {
+                marker: {
+                  enabled: false
+                }
+              }
+            },
+            title: {
+              text: 'Pageviews'
+            },
+            subtitle: {
+              text: 'per minute'
+            },
+                        xAxis: {
+                                        type: 'datetime',
+                                        minTickInterval : 1000
+                        },
+            series: []
+          }
+        <% end unit %>
+
+            <div class="unit">
+                <table id="countries-table">
+
+                    <% for user in users %>
+                        <tr>
+                            <td><%= user.id %></td>
+                            <td><%= user.country %></td>
+                            <td><%= user.lat %></td>
+                            <td><%= user.lng %></td>
+                        </tr>
+                    <% end for %>
+                </table>
+            </div>
+
+
+            <% unit GoogleMaps %>
+            {
+                    options: {
+                        zoom: 2,
+                        center: {
+                                lat: 25.32131,
+                                lng : 131
+                        }
+                    },
+                    markers: [
+                        <% for user in users %>
+                            {
+                                position: {
+                                    lat: <%= user.lat %>,
+                                    lng: <%= user.lng %>,
+                                },
+                                infowindow: <% unit Highcharts %>
+                                    {
+                                        series: [
+                                            <% for room in user.rooms %>
+                                                {
+                                                  data: [
+                                                       <% for measurement in room.measurements %>
+                                                            {
+                                                                y: <%= measurement %>,
+                                                                color : 'blue'
+                                                            }
+                                                        <% end for %>
+                                                  ],
+                                                  animation: false,
+                                                  lineWidth: 1,
+                                                  name: 'Room 3232',
+                                                  events: {
+
+                                                  }
+                                                }
+                                          <% end for %>]
+                                    }
+                                <% end unit %>
+                            }
+                        <% end for %>
+                    ]
+            }
+            <% end unit %>
+    <% end html %>
+<% end template %>

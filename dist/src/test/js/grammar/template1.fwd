@@ -1,0 +1,21 @@
+<% template main %>
+  <% refresh products = some.path.that.leads[2].products[7].das.das %>
+  <% refresh products2 = some.other.path.that.leads[2].products[7].das.das %>
+  <% refresh products3 = a.third.path.that.leads[2].products[7].das.das %>
+  <% refresh products4 = a.forth.path.that.leads[2].products[7].das.das %>
+  <% html %>
+
+  <br class="classname classname2 classname3" randomAttribute="attribute_Name" valuelessattr/>
+    <table class="someClass">
+      <tr> <!-- ... column labels ... --> </tr>
+        <% for product in products %>
+          <tr>
+            <td> <!-- ... row labels ... --> </td>
+            <% for cell in product.group %>
+              <td style="<%= toCss(cell.units, threshold) %>"/>
+            <% end for %>
+          </tr>
+        <% end for %>
+    </table>
+  <% end html %>
+<% end template %>

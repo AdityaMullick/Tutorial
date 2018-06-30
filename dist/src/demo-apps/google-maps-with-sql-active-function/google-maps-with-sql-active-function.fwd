@@ -1,0 +1,26 @@
+<%template index %>
+    <% let users = sql("SELECT lat, lng FROM user_table") %>
+    <% html %>
+        <% unit GoogleMaps {attributes:[{class:'gmap-wrapper'}]}%>
+        {
+            options: {
+                zoom: 2,
+                center: {
+                    lat: 25.32131,
+                    lng : 131
+                }
+            },
+            markers: [
+                <% for user in users %>
+                    {
+                        position: {
+                            lat: <%= user.lat %>,
+                            lng: <%= user.lng %>,
+                        }
+                    }
+                <% end for %>
+            ]
+        }
+        <% end unit %>
+    <% end html %>
+<% end template %>

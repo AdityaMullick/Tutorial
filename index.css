@@ -1,0 +1,199 @@
+/*------- General -------*/
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-color: black;
+}
+
+div.container-fluid,
+div.container-fluid>div>div {
+    height: 100%;
+}
+
+#content {
+    height: 95%;
+}
+
+#instructions {
+    height: 50%;
+    padding: 10px;
+}
+
+#output,
+#error-log {
+    height: 50%;
+    padding: 10px;
+}
+
+#source {
+    height: 100%;
+    padding: 10px;
+}
+
+#run-button {
+    display: inline-block;
+    float: right;
+}
+
+
+/*------- Navigator -------*/
+
+#tutorial-pagination {
+    height: 5%;
+    min-height: 35px;
+    padding: 10px;
+}
+
+#tutorial-pagination .input-group {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#tutorial-pagination .btn-group .btn-group {
+    width: 350px;
+}
+
+#tutorial-pagination .btn-group .btn-group>*,
+#tutorial-pagination .btn-group .btn-group>ul button {
+    width: 100%;
+}
+
+#tutorial-pagination .btn-group .btn-group>ul button {
+    text-align: left;
+    padding: 3px 20px;
+    background: none;
+    border: 0;
+}
+
+#tutorial-pagination .btn-group .btn-group>ul a {
+    padding: 0;
+}
+
+
+/*------- Headers -------*/
+
+h3.pane-header {
+    padding: 0 0 10px 0;
+    border-bottom: 1px solid #eee;
+    margin: 0;
+}
+
+#instructions h3,
+#output h3 {
+    position: relative;
+    width: 100%;
+}
+
+#source h3,
+#error-log h3 {
+    padding: 0 20px 10px 10px;
+    margin: 10px 0 10px;
+}
+
+
+/*------- Iframes -------*/
+
+iframe {
+    width: 100%;
+    height: 100%;
+    padding: 60px 10px 10px 10px;
+    border: none;
+    border-width: 0;
+}
+
+
+/*------- Panes -------*/
+
+.pane {
+    display: table;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    background-color: white;
+    height: 100%;
+}
+
+.pane>div:first-child {
+    position: absolute;
+    padding: 10px 25px 0 10px;
+    width: 100%;
+}
+
+.pane>div:last-child {
+    height: 100%;
+    width: 100%;
+    display: table-row;
+}
+.tutorial_text_pane {
+    width: 97%;
+    height: 50%;
+    padding: 50px 5px 20px 0px;
+    /*border: none;*/
+    /*border-width: 0;*/
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+}
+
+.tutorial_text_inner_pane{
+    overflow-y: auto;
+    height: 100%;
+}
+
+.pane_below_run_me_button{
+    pointer-events: none;
+
+
+}
+
+#runPane{
+    overflow: auto;
+}
+
+/*------- Source Code + Error log Panes -------*/
+
+#source .pane,
+#error-log .pane {
+    display: table;
+}
+
+#source .pane>div:first-child,
+#error-log .pane>div:first-child {
+    position: relative;
+    padding: 0px;
+    display: inline-block;
+}
+
+#source .pane .pane,
+#error-log .pane div:last-child>div {
+    padding: 0 10px 10px 10px;
+}
+
+
+/*------- Source Code -------*/
+
+.ace_directive {
+    font-style: italic;
+}
+
+.ace_markup {
+    color: black !important;
+}
+
+#tab-wrapper>div {
+    width: 100%;
+}
+
+.tab-content {
+    height: 100%;
+    width: 100%;
+    padding: 0 5px;
+}
+
+.tab-content div {
+    height: 100%;
+}

@@ -1,0 +1,17 @@
+<% template main %>
+    <% refresh array_alias = array_var %>
+
+    <% html %>
+
+    <table style="width:100%">
+        <% for element_alias in array_alias %>
+            <tr>
+                <td>Jill</td>
+                <td>Smith</td>
+                <td> <%= element_alias %></td>
+            </tr>
+
+        <% end for %>
+    </table>
+
+<% end html %>

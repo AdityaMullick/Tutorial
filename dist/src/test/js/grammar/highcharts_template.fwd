@@ -1,0 +1,40 @@
+<%template main %>
+  <% unit Highcharts %>
+    {
+        chart: {
+          renderTo: 'container',
+          zoomType: 'x'
+        },
+        plotOptions:{
+            series:{
+                turboThreshold:5000000
+            }
+        },
+        title: {
+          text: 'Trimmed Highcharts drawing points'
+        },
+        subtitle: {
+          text: 'Using the experimental Highcharts Boost module'
+        },
+
+        tooltip: {
+          valueDecimals: 1
+        },
+        series: [{
+          data: [
+               <% for measurement in measurements %>
+                    {
+                        y: <%= measurement %>,
+                        color : <%= rgb(measurement) %>
+                    }
+                <% end for %>
+          ],
+          lineWidth: 1,
+          events: {
+
+          }
+          }
+        ]
+    }
+  <% end unit %>
+<% end template %>

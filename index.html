@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0032)http://forward.ucsd.edu/tutorial -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <script src="/ForwardTutorial/dist/node_modules/chance/dist/chance.min.js"></script>
+    <!--<script src="/ForwardTutorial/js/ide/main-ide.js"></script>-->
+    <script data-main="/ForwardTutorial/js/ide/main-ide" src="/ForwardTutorial/dist/node_modules/requirejs/require.js"></script>
+
+
+    <script src="require.js"></script>
+  <style type="text/css">
+    :root #content>#right>.dose>.dosesingle,
+    :root #content>#center>.dose>.dosesingle {
+      display: none !important;
+    }
+  </style>
+
+  <!--<link type="text/css" rel="stylesheet" href="heatmap.css">-->
+  <!--<script type="text/javascript" charset="utf-8" async="" data-requirecontext="page" data-requiremodule="order" src="order.js"></script>-->
+  <title>Forward 2.0 Tutorial</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="index.css" rel="stylesheet">
+  <script></script>
+  <script></script>
+  <!--<script src="mode-forward_html.js"></script>-->
+  <!--<script src="theme-chrome.js"></script>-->
+  <!--<script src="mode-sql.js"></script>-->
+  <!--<script src="theme-chrome.js"></script>-->
+  <script type="text/javascript" charset="utf-8" data-requirecontext="page" data-requiremodule="http://code.jquery.com/jquery-1.11.0.min.js" src="jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" charset="utf-8" data-requirecontext="page" data-requiremodule="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js" src="bootstrap.min.js"></script>
+    <script src="buttonHandler.js"></script>
+
+</head>
+
+<body style="">
+  <div class="container-fluid" style="cursor: default;">
+    <div class="row" id="tutorial-pagination">
+      <div class="text-center">
+        <div class="btn-group"><button id = "previous"type="button" class="btn btn-default">&#8592; Previous</button>
+          <div class="btn-group"><button xmlns="http://www.w3.org/1999/xhtml" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width:100%" type="button">
+                    Select Tutorial <span class="caret"></span></button>
+            <ul class="dropdown-menu" role="menu">
+              <li class="active"><a><button id = "simple"type="button">01 - Simple Html</button></a></li>
+              <li class=""><a><button id = "visual"type="button">02 - Visual Units</button></a></li>
+              <li class=""><a><button id = "dynamic" type="button">03 - Dynamic Data</button></a></li>
+              <li class=""><a><button id = "input" type="button">04 - User Input</button></a></li>
+              <li class=""><a><button id = "parameters" type="button">05 - URL Parameters</button></a></li>
+              <li class=""><a><button id = "singleBrowse" type="button">06 - Faceted Browsing (Single Input)</button></a></li>
+              <li class=""><a><button id = "multipleBrowse" type="button">07 - Faceted Browsing (Multiple Inputs)</button></a></li>
+            </ul>
+          </div><button id = "nextButton"type="button" class="btn btn-default">Next &#8594;</button></div>
+      </div>
+    </div>
+    <div class="row" id="content">
+      <div class="col-md-6">
+        <div class="row" id="instructions">
+          <div class="pane">
+            <div>
+              <h3 class="pane-header">Tutorial</h3></div>
+            <div>
+
+              <div class="tutorial_text_pane"  >
+                  <div id = "frame" class="tutorial_text_inner_pane"  >
+                    <!--<div class="container-fluid" style="overflow:scroll; height:400px;">-->
+                      <div id = "container"class="container-fluid" >
+                      <h2 id = "test">How to Use This Tutorial</h2>
+
+
+                      <p>This tutorial teaches you programming in FORWARD, using example FORWARD applications of increasing complexity, where a user analyzes and visualizes sales of different products.</p>
+
+                      <p>A few tips to navigate the tutorial:</p>
+
+                      <ul>
+                        <li>Use <kbd>Previous</kbd> and <kbd>Next</kbd> to step through the tutorial.</li>
+                        <li>The source code is shown on the right.</li>
+                        <li>The application output is shown on the lower left.</li>
+                        <li>Use <kbd>Run</kbd> to compile and run the application.</li>
+                      </ul>
+
+                      <h2>Actions and Pages</h2>
+
+                      <p>A FORWARD application consists of <b>actions</b> and <b>pages</b>. Each action is associated with a URL. When a browser visits an action's URL, the code of the action runs. The action (among other things) decides which is the next page to be shown on the browser. The user's activity on the page (eg clicking on a button) leads to the activation of an action, which will then lead to another page and so the action-page cycle continues.</p>
+
+                      <h2>Use Case: Simple HTML</h2>
+
+                      <img src="../../img/tutorial/01-simple-html.png" width="400" height="265"><br>
+
+                      <p>This example displays a simple HTML page. We will shortly extend it to utilize charts for visualizing data from a SQL database. In this simple example, the FORWARD interpreter first executes <tt>index.action</tt>, then displays <tt>index.page</tt>.</p>
+
+                      <h3>Example Code</h3>
+
+                      <p><tt>index.action</tt> specifies the page to be displayed is <tt>index.page</tt> (line 3).
+
+                      </p><p><tt>index.page</tt> uses the <code>&lt;% html %&gt;</code> directive (line 1) to render standard HTML: it links to the <a target="_blank" href="http://getbootstrap.com/">Bootstrap CSS library</a>, and contains a HTML table for data.
+
+                    </p><h3>Exercises</h3>
+                      <ol>
+                        <li>Add the following CSS stylesheet to use a different Bootstrap theme.<pre>&lt;link rel="stylesheet" href="http://bootswatch.com/darkly/bootstrap.min.css"&gt;&lt;/link&gt;
+    </pre></li>
+                        <li>Add the HTML for a second product. For example:<pre>&lt;h2&gt;Daily Sales for Tablet&lt;/h2&gt;
+    &lt;table class="table table-striped"&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Product&lt;/th&gt;
+                &lt;th&gt;Date&lt;/th&gt;
+                &lt;th&gt;Total&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Tablet&lt;/td&gt;
+            &lt;td&gt;2014-01-01&lt;/td&gt;
+            &lt;td&gt;401&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Tablet&lt;/td&gt;
+            &lt;td&gt;2014-01-02&lt;/td&gt;
+            &lt;td&gt;658&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Tablet&lt;/td&gt;
+            &lt;td&gt;2014-01-03&lt;/td&gt;
+            &lt;td&gt;740&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+    </pre>
+                        </li>
+                      </ol>
+                    </div>
+                  </div>
+              </div>
+
+
+              <!--<iframe id="tutorialPane" frameborder="0" seamless="" src="https://forward.ucsd.edu/tutorial/01-simple-html.html"></iframe>-->
+            </div>
+          </div>
+        </div>
+        <div class="row" id="output">
+          <div  class="pane">
+            <div>
+              <h3 class="pane-header">Output
+                <div id="run-button" style="display:inline-block;">
+
+                    <a  class="btn btn-primary">Run <span class="glyphicon glyphicon-play"></span></a>
+                </div>
+              </h3>
+            </div>
+            <div class="pane_below_run_me_button">
+                <div>
+
+                    <div class="tutorial_text_pane">
+                        <div class="tutorial_text_inner_pane">
+                            <!--<div class="container-fluid" style="overflow:scroll; height:400px;">-->
+                            <div id = "runPane" class="container-fluid">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--<iframe id="tutorialPane" frameborder="0" seamless="" src="https://forward.ucsd.edu/tutorial/01-simple-html.html"></iframe>-->
+                </div>
+
+              <!--<iframe frameborder="0" seamless="" src="./index_files/index.html"></iframe>-->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row" id="source">
+          <div class="pane">
+            <div>
+              <h3 class="pane-header">Source</h3></div>
+            <div>
+              <div class="pane" id="tab-wrapper">
+                <div>
+                  <ul class="nav nav-pills nav-justified" role="tablist">
+                      <li class="">
+                          <a data-toggle="tab" href="#html_1" role="tab">index.html</a>
+                      </li>
+                    <li class="active">
+                      <a data-toggle="tab" href="#page_1" role="tab">template.fwd</a>
+                    </li>
+                    <li class="">
+                      <a data-toggle="tab" href="#action_1" role="tab">action.js</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <div class="tab-content">
+                    <div class="tab-pane active" id="page_1">
+                        <div id="template">
+&lt;% template index %&gt;
+  &lt;% html {attributes:[{class:'myhtmlclass'}]} %&gt;
+      &lt;div class=&quot;container&quot;&gt;
+        &lt;h2&gt;Daily Sales for Phone &lt;/h2&gt;
+        &lt;table class=&quot;table table-striped&quot;&gt;
+          &lt;thead&gt;
+            &lt;tr&gt;
+              &lt;th&gt;Product&lt;/th&gt;
+              &lt;th&gt;Date&lt;/th&gt;
+              &lt;th&gt;Total&lt;/th&gt;
+            &lt;/tr&gt;
+          &lt;/thead&gt;
+          &lt;tr&gt;
+            &lt;td&gt;Phone&lt;/td&gt;
+            &lt;td&gt;2014-01-01&lt;/td&gt;
+            &lt;td&gt;598&lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;td&gt;Phone&lt;/td&gt;
+            &lt;td&gt;2014-01-02&lt;/td&gt;
+            &lt;td&gt;839&lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;td&gt;Phone&lt;/td&gt;
+            &lt;td&gt;2014-01-03&lt;/td&gt;
+            &lt;td&gt;742&lt;/td&gt;
+          &lt;/tr&gt;
+                            &lt;tr&gt;
+                            &lt;td&gt;Phone&lt;/td&gt;
+                            &lt;td&gt;20214-01-03&lt;/td&gt;
+                            &lt;td&gt;742&lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+                            &lt;td&gt;Phone&lt;/td&gt;
+                            &lt;td&gt;2014-01-03&lt;/td&gt;
+                            &lt;td&gt;742&lt;/td&gt;
+                            &lt;/tr&gt;&lt;tr&gt;
+                            &lt;td&gt;Phone&lt;/td&gt;
+                            &lt;td&gt;2014-01-03&lt;/td&gt;
+                            &lt;td&gt;742&lt;/td&gt;
+                            &lt;/tr&gt;&lt;tr&gt;
+                            &lt;td&gt;Phone&lt;/td&gt;
+                            &lt;td&gt;203214-01-03&lt;/td&gt;
+                            &lt;td&gt;742&lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+                            &lt;td&gt;Phone&lt;/td&gt;
+                            &lt;td&gt;2014-01-03&lt;/td&gt;
+                            &lt;td&gt;742&lt;/td&gt;
+                            &lt;/tr&gt;
+
+
+
+        &lt;/table&gt;
+      &lt;/div&gt;
+  &lt;% end html %&gt;
+&lt;% end template %&gt;</div>
+                    </div>
+                    <div class="tab-pane" id="action_1">
+                      <div id="action">requirejs(['require-config'], function() {
+  requirejs(['Forward', 'main/api/diff/UpdateDiff', 'main/api/diff/AppendDiff', 'main/api/diff/InsertIntoArrayDiff', 'main/api/diff/Path'], function(Forward, UpdateDiff, AppendDiff, InsertIntoArrayDiff, Path) {
+    Forward._display_template(content, {}, 'myID');
+  });
+});</div>
+                    </div>
+                      <div class="tab-pane" id="html_1">
+                          <div id="html">&lt;html&gt;
+                              &lt;head&gt;
+                              &lt;title&gt;FORWARD&lt;/title&gt;
+
+                              &lt;!--&lt;script src="../chance.min.js"&gt;&lt;/script&gt;--&gt;
+                              &lt;script data-main="forward_app" src="../../../node_modules/requirejs/require.js"&gt;&lt;/script&gt;
+                              &lt;link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"&gt;
+                              &lt;/head&gt;
+                              &lt;body&gt;
+                              &lt;div id="myID"&gt;&lt;/div&gt;
+                              &lt;/body&gt;
+                              &lt;/html&gt;
+
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="ace_dependency/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+  <script>
+      var action_editor = ace.edit("action");
+      // editor.setTheme("ace/theme/monokai");
+      action_editor.session.setMode("ace/mode/javascript");
+
+
+
+      var htmlElement = document.getElementById("html");
+      var html_editor = ace.edit("html");
+      html_editor.session.setMode("ace/mode/html");
+      html_editor.getSession().setUseWorker(false);
+      //html_editor.session.setValue(htmlElement.innerHTML);
+
+      var template_editor = ace.edit("template");
+      template_editor.session.setMode("ace/mode/html");
+      template_editor.getSession().setUseWorker(false);
+      var content = template_editor.getValue();
+      console.log(content);
+  </script>
+
+</body>
+
+</html>
